@@ -1,0 +1,21 @@
+<form class="form" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+  <div class="form__field">
+    <label for="name">Project Name</label>
+    <input id="name" type="text" name="name" placeholder="ng reactive form" formControlName="name">
+    <p *ngIf="!projectForm.get('name')?.valid && projectForm.get('name')?.touched" class="form__error">Test is not allowed project name</p>
+  </div>
+  <div class="form__field">
+    <label for="email">E-mail</label>
+    <input id="email" type="email" name="email" placeholder="johndoe@gmail.com" formControlName="email">
+    <p *ngIf="!projectForm.get('email')?.valid && projectForm.get('email')?.touched" class="form__error">Enter a valid e-mail address</p>
+  </div>
+  <div class="form__field">
+    <label for="status">Choose the Project Status</label>
+    <select id="status" name="status" formControlName="status">
+      <option value="stable">Stable</option>
+      <option value="critical">Critical</option>
+      <option value="finished">Finished</option>
+    </select>
+  </div>
+  <button>Submit</button>
+</form>
